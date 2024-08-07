@@ -1,9 +1,14 @@
 from supabase_py import create_client, Client
 from models import User
+from dotenv import load_dotenv
+import os
+
+# Cargar las variables de entorno desde el archivo .env
+load_dotenv()
 
 # Configuración de Supabase
-SUPABASE_URL = "https://nuoygvimyznmnytuivyn.supabase.co"
-SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im51b3lndmlteXpubW55dHVpdnluIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjMwNDE3MDMsImV4cCI6MjAzODYxNzcwM30.JAKTZi-SJgBhhvfONNwoh_6oex9mH-3XRdaK_7GO1n8"
+SUPABASE_URL = os.getenv("SUPABASE_URL")
+SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 
 # Crear el cliente de Supabase
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
