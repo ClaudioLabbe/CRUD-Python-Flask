@@ -14,37 +14,31 @@ Sigue estos pasos para configurar y ejecutar el proyecto:
 
 Clona este repositorio en tu máquina local:
 
-- bash
-git clone https://github.com/ClaudioLabbe/CRUD-Python-Flask.git
+- git clone https://github.com/ClaudioLabbe/CRUD-Python-Flask.git
 cd CRUD-Python-Flask
 
 ### 2. Crear un Entorno Virtual
 
 Crea un entorno virtual para la instalación de paquetes:
 
-- bash
-python -m venv venv
+- python -m venv venv
 
 ### 3. Activar el Entorno Virtual
 
 Activa el entorno virtual:
 
 - En Windows:
-
-    bash
     .\\venv\\Scripts\\activate
 
 - En macOS y Linux:
 
-    bash
     source venv/bin/activate
 
 ### 4. Instalar Dependencias
 
 Instala las dependencias necesarias:
 
-- bash
-pip install flask supabase-py python-dotenv
+- pip install flask supabase-py python-dotenv
 
 ### 5. Configurar variables de entorno para Supabase
 
@@ -57,8 +51,7 @@ Crea un archivo '.env' con variables SUPABASE_URL y SUPABASE_KEY, asegúrate de 
 
 Levanta el servicio Flask:
 
-- bash
-python app/app.py
+- python app/app.py
 
 ### 7. Probar el Servicio
 
@@ -66,8 +59,8 @@ Una vez que el servicio esté en funcionamiento, puedes probar los endpoints usa
 
 ### Endpoints Disponibles
 
-- **GET /users**: Obtiene todos los usuarios.
-- **POST /create_user**: Crea un nuevo usuario. Ejemplo de cuerpo de solicitud:
+- **GET app/users**: Obtiene todos los usuarios.
+- **POST app/create_user**: Crea un nuevo usuario. Ejemplo de cuerpo de solicitud:
     - json
     {
         "name":"test",
