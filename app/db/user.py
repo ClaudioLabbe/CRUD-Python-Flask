@@ -1,3 +1,4 @@
+from json import JSONDecodeError
 from models import user
 from config.supabasedb import supabase
 
@@ -19,4 +20,17 @@ class UserDb():
         response = supabase.table(self.table).select("*").execute()
 
         return response
+    
+    def user_by_id(self, id:int):
+        return supabase.table(self.table).select("*").eq("id", str(id)).execute()
+    
+    def user_delete(self, id):
+        response = {}
+        res = self.user_by_id(int(id))
+        if res["data"]:
+            response = supabase.table(self.table).delete().eq("id", str(id)).execute()
+        else:
+            response["data"] = "Usuario no existe"
+            response["code"] = 404         
 
+        return response

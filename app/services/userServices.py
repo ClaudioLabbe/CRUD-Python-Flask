@@ -2,22 +2,23 @@ from flask import request
 from models.user import UserModel 
 from db.user import UserDb
 
-def create_user_services():
+user_db = UserDb("user")
 
-    data = request.get_json()
+def create_user_services(data: dict):
 
     user = UserModel(id=None, name=data["name"], last_name=data["last_name"], email=data["email"])
-
-    user_db = UserDb("user")
 
     response = user_db.insert_user(user)
 
     return response
 
 def users_services():
+    return user_db.users()
 
-    user_db = UserDb("user")
+def user_by_id_service(id: int):
 
-    response = user_db.users()
+    return user_db.user_by_id(id)
 
-    return response
+def user_delete_service(id: int):
+    
+    return user_db.user_delete(id)
